@@ -7,12 +7,12 @@
     <RuntimeFrameworkVersion>2.0.5</RuntimeFrameworkVersion>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='netcoreapp2.0' Or '$(TargetFramework)'=='netstandard2.0'">
+  <ItemGroup Condition="'$(Configuration)'!='Release'">
     <!-- Include the API Analyzer in all .NET Core projects -->
     <PackageReference Include="Microsoft.DotNet.Analyzers.Compatibility" Version="0.1.2-alpha" />
   </ItemGroup>
   
-  <ItemGroup>
+  <ItemGroup Condition="'$(Configuration)'!='Release'">
     <!-- Include the standard FxCop Analyzers in all projects, note the version of this package is tied to the version of VS - https://github.com/dotnet/roslyn-analyzers#recommended-version-of-analyzer-packages -->
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.6.0" />
   </ItemGroup>
